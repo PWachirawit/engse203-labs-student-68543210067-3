@@ -1,8 +1,8 @@
 ## ENGSE203 Weekly LAB Submission
 
 - Week: `week-NN`
-- Student ID:
-- Pages URL:
+- Student ID: 68543210067-3
+- Pages URL:  https://github.com/PWachirawit/engse203-labs-student-68543210067-3
 - Submission Tag/Commit:
 
 ## Changes
