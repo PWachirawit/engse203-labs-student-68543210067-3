@@ -2,18 +2,18 @@
   {
     "week": "week-01",
     "title": "Developer Environment & GitHub Repository Setup",
-    "status": "draft",
-    "sourceOrigin": "course-starter",
-    "originalRepoUrl": "",
-    "originalCommit": "",
+    "status": "ready",
+    "sourceOrigin": "migrated-repository",
+    "originalRepoUrl": "https://github.com/PWachirawit/engse203-labs-student-68543210067-3",
+    "originalCommit": "abc1234",
     "pullRequestUrl": "",
-    "submissionTag": "",
-    "testStatus": "not-tested",
-    "notes": "LAB 1 ใช้ evidence report ได้โดยไม่ต้องมี web application",
-    "pageUrl": "https://GITHUB-USERNAME.github.io/engse203-student-labs-STUDENT-ID/labs/week-01/",
-    "sourceUrl": "https://github.com/GITHUB-USERNAME/engse203-student-labs-STUDENT-ID/tree/lab/week-01/labs/week-01/source",
+    "submissionTag": "lab-01-submission-v1",
+    "testStatus": "pass",
+    "notes": "รัน hello.js และตรวจ environment แล้ว",
+    "pageUrl": "https://PWachirawit-github.github.io/engse203-student-labs-68543210067/labs/week-01/",
+    "sourceUrl": "https://github.com/PWachirawit-github/engse203-student-labs-68543210067/tree/lab/week-01/labs/week-01/source",
     "hasPublish": false,
-    "sourceEntries": 0
+    "sourceEntries": 4
   },
   {
     "week": "week-02",
@@ -26,8 +26,8 @@
     "submissionTag": "",
     "testStatus": "not-tested",
     "notes": "นำ Vite build output ที่มี index.html เข้า publish/",
-    "pageUrl": "https://GITHUB-USERNAME.github.io/engse203-student-labs-STUDENT-ID/labs/week-02/",
-    "sourceUrl": "https://github.com/GITHUB-USERNAME/engse203-student-labs-STUDENT-ID/tree/lab/week-02/labs/week-02/source",
+    "pageUrl": "https://PWachirawit-github.github.io/engse203-student-labs-68543210067/labs/week-02/",
+    "sourceUrl": "https://github.com/PWachirawit-github/engse203-student-labs-68543210067/tree/lab/week-02/labs/week-02/source",
     "hasPublish": false,
     "sourceEntries": 0
   },
@@ -42,8 +42,8 @@
     "submissionTag": "",
     "testStatus": "not-tested",
     "notes": "Static site ต้องมี index.html ที่ publish root",
-    "pageUrl": "https://GITHUB-USERNAME.github.io/engse203-student-labs-STUDENT-ID/labs/week-03/",
-    "sourceUrl": "https://github.com/GITHUB-USERNAME/engse203-student-labs-STUDENT-ID/tree/lab/week-03/labs/week-03/source",
+    "pageUrl": "https://PWachirawit-github.github.io/engse203-student-labs-68543210067/labs/week-03/",
+    "sourceUrl": "https://github.com/PWachirawit-github/engse203-student-labs-68543210067/tree/lab/week-03/labs/week-03/source",
     "hasPublish": false,
     "sourceEntries": 0
   },
@@ -58,8 +58,8 @@
     "submissionTag": "",
     "testStatus": "not-tested",
     "notes": "React/Vite build output ต้องอยู่ใน publish/ ก่อนสร้าง Pages Hub",
-    "pageUrl": "https://GITHUB-USERNAME.github.io/engse203-student-labs-STUDENT-ID/labs/week-04/",
-    "sourceUrl": "https://github.com/GITHUB-USERNAME/engse203-student-labs-STUDENT-ID/tree/lab/week-04/labs/week-04/source",
+    "pageUrl": "https://PWachirawit-github.github.io/engse203-student-labs-68543210067/labs/week-04/",
+    "sourceUrl": "https://github.com/PWachirawit-github/engse203-student-labs-68543210067/tree/lab/week-04/labs/week-04/source",
     "hasPublish": false,
     "sourceEntries": 0
   }

@@ -3,7 +3,7 @@
 แต่ละ LAB ใช้โครงสร้างเดียวกัน:
 
 ```text
-week-NN/
+week-01/
 ├── README.md
 ├── lab-metadata.json
 ├── source/      # source code ที่ตรวจ
