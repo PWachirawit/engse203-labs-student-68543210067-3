@@ -9,8 +9,13 @@
   "submissionTag": "",
   "testStatus": "not-tested",
   "notes": "Static site ต้องมี index.html ที่ publish root",
+<<<<<<< HEAD
   "pageUrl": "https://PWachirawit.github.io/engse203-student-labs-68543210067-3/labs/week-03/",
   "sourceUrl": "https://github.com/PWachirawit/engse203-student-labs-68543210067-3/tree/lab/week-03/labs/week-03/source",
+=======
+  "pageUrl": "https://PWachirawit-github.github.io/engse203-student-labs-68543210067/labs/week-03/",
+  "sourceUrl": "https://github.com/PWachirawit-github/engse203-student-labs-68543210067/tree/lab/week-03/labs/week-03/source",
+>>>>>>> bb3339e497823167104ccf8052871d3e9df3a2ab
   "hasPublish": false,
   "sourceEntries": 1
 }
