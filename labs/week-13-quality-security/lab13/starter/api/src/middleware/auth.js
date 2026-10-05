@@ -9,13 +9,19 @@ import { verifyToken } from '../services/authService.js';
  * header ที่ส่งมา:  Authorization: Bearer <token>
  */
 export function authenticate(req, res, next) {
-  // TODO: อ่าน req.get('Authorization') → แยก 'Bearer' กับ token
-  //       ไม่มี → 401 { error: 'ต้องเข้าสู่ระบบก่อน' }
-  //       verifyToken(token) ผ่าน → req.user = payload แล้ว next()
-  //       verifyToken โยน error → 401
-  next();
+  const header = req.get('Authorization') ?? '';
+  const [scheme, token] = header.split(' ');
+  if (scheme !== 'Bearer' || !token) {
+    res.set('WWW-Authenticate', 'Bearer');
+    return res.status(401).json({ error: 'ต้องเข้าสู่ระบบก่อน' });
+  }
+  try {
+    req.user = verifyToken(token);   // แนบข้อมูลผู้ใช้ไว้ให้ชั้นถัดไป
+    next();
+  } catch {
+    return res.status(401).json({ error: 'token ไม่ถูกต้องหรือหมดอายุ กรุณาเข้าสู่ระบบใหม่' });
+  }
 }
-
 export function requireRole(role) {
   return (req, res, next) => {
     // TODO: req.user?.role ไม่ตรง role → 403 { error: 'ไม่มีสิทธิ์ทำรายการนี้' }
