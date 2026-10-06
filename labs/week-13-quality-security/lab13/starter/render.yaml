@@ -7,13 +7,15 @@ services:
     runtime: node
     plan: free
     region: singapore
-    rootDir: labs/week-13/source          # โฟลเดอร์โปรเจกต์ใน Student Repository
+    rootDir: labs/week-13-quality-security/lab13/starter
     buildCommand: npm install && npm run build
     startCommand: npm start
     healthCheckPath: /api/health          # Render รอให้ตอบ 2xx ก่อนเปิดให้ใช้งาน
     envVars:
       - key: NODE_ENV
         value: production
+      - key: JWT_SECRET
+        generateValue: true
       - key: NODE_VERSION
         value: "22"                       # node:sqlite ใช้ได้ไม่ต้องใส่ flag ตั้งแต่ 22.13
       # ไม่ต้องตั้ง PORT — Render กำหนดให้เอง (ค่าเริ่มต้น 10000) และ config.js อ่านจาก process.env.PORT

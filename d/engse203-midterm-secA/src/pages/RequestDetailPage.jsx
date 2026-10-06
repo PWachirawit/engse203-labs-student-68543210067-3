@@ -3,18 +3,14 @@ import { Link, useParams } from 'react-router-dom';
 import ErrorState from '../components/ErrorState.jsx';
 import LoadingState from '../components/LoadingState.jsx';
 import useManualReload from '../hooks/useManualReload.js';
-import { getRequestById, updateRequestStatus } from '../services/requestService.js';
-import { useAuth } from '../auth/AuthContext.jsx';
+import { getRequestById } from '../services/requestService.js';
 
 function RequestDetailPage() {
-  const { isStaff } = useAuth();
   const { requestId } = useParams();
   const [loadState, setLoadState] = useState('loading');
   const [request, setRequest] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   const [reloadKey, reload] = useManualReload();
-  const [statusNotice, setStatusNotice] = useState('');
-  const [savingStatus, setSavingStatus] = useState(false);
 
   useEffect(() => {
     let ignore = false;
@@ -29,22 +25,7 @@ function RequestDetailPage() {
       setLoadState('error');
     });
     return () => { ignore = true; };
-  }, [requestId, reloadKey]);
-
-  async function handleStatusChange(event) {
-    const status = event.target.value;
-    setSavingStatus(true);
-    setStatusNotice('');
-    try {
-      const updated = await updateRequestStatus(requestId, status);
-      setRequest(updated);
-      setStatusNotice('อัปเดตสถานะแล้ว');
-    } catch (error) {
-      setStatusNotice(error instanceof Error ? error.message : 'อัปเดตสถานะไม่สำเร็จ');
-    } finally {
-      setSavingStatus(false);
-    }
-  }
+  }, [reloadKey, requestId]);
 
   return (
     <section data-testid="page-request-detail">
@@ -57,14 +38,7 @@ function RequestDetailPage() {
       {loadState === 'success' && request && (
         <article className="panel detail-card">
           <h2>{request.requestType}</h2>
-          <dl><div><dt>ID</dt><dd>{request.id}</dd></div><div><dt>ผู้แจ้ง</dt><dd>{request.requesterName}</dd></div><div><dt>สถานที่</dt><dd>{request.location}</dd></div><div><dt>รายละเอียด</dt><dd>{request.details}</dd></div><div><dt>ความเร่งด่วน</dt><dd>{request.priority}</dd></div><div><dt>สถานะ</dt><dd>{isStaff ? (
-            <select aria-label="สถานะคำร้อง" disabled={savingStatus} onChange={handleStatusChange} value={request.status}>
-              <option value="pending">รอดำเนินการ</option>
-              <option value="in-progress">กำลังดำเนินการ</option>
-              <option value="completed">เสร็จสิ้น</option>
-            </select>
-          ) : request.status}</dd></div></dl>
-          {statusNotice && <p className="notice" role="status">{statusNotice}</p>}
+          <dl><div><dt>ID</dt><dd>{request.id}</dd></div><div><dt>ผู้แจ้ง</dt><dd>{request.requesterName}</dd></div><div><dt>สถานที่</dt><dd>{request.location}</dd></div><div><dt>รายละเอียด</dt><dd>{request.details}</dd></div><div><dt>ความเร่งด่วน</dt><dd>{request.priority}</dd></div><div><dt>สถานะ</dt><dd>{request.status}</dd></div></dl>
           <Link to="/">กลับ Dashboard</Link>
         </article>
       )}

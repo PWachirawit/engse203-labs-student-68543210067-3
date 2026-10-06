@@ -13,9 +13,25 @@ import authRoutes from './routes/authRoutes.js';
 export function createApp() {
   const app = express();
 
+  app.set('trust proxy', config.isProd ? 1 : false);
+  app.use((req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    next();
+  });
+
+  const corsOrigins = new Set([config.corsOrigin]);
+  if (!config.isProd) {
+    const localOrigin = new URL(config.corsOrigin);
+    const localHostAliases = { localhost: '127.0.0.1', '127.0.0.1': 'localhost' };
+    if (localHostAliases[localOrigin.hostname]) {
+      localOrigin.hostname = localHostAliases[localOrigin.hostname];
+      corsOrigins.add(localOrigin.origin);
+    }
+  }
+
   // ① CORS — dev ใช้ (frontend 5173 เรียก API 3001 ข้ามพอร์ต)
   //    production ไม่จำเป็น เพราะเว็บกับ API อยู่ origin เดียวกัน แต่ใส่ไว้ไม่เสียหาย
-  app.use(cors({ origin: config.corsOrigin }));
+  app.use(cors({ origin: [...corsOrigins] }));
 
   // ② logging — dev อ่านง่าย · production ละเอียดสำหรับเก็บ log
   // test ไม่ต้อง log ทุกคำขอ — ผลการทดสอบจะได้อ่านง่าย

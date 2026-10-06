@@ -4,6 +4,11 @@
  */
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3001';
+let authToken = null;
+
+export function setAuthToken(token) {
+  authToken = typeof token === 'string' && token.length > 0 ? token : null;
+}
 
 /** error ที่รู้ว่ามาจาก API พร้อม status ที่ได้กลับมา */
 export class ApiError extends Error {
@@ -33,8 +38,12 @@ export async function apiFetch(path, options = {}) {
   let response;
   try {
     response = await fetch(`${BASE_URL}${path}`, {
-      headers: { 'Content-Type': 'application/json', ...options.headers },
       ...options,
+      headers: {
+        'Content-Type': 'application/json',
+        ...options.headers,
+        ...(authToken ? { Authorization: `Bearer ${authToken}` } : {}),
+      },
     });
   } catch {
     // fetch โยน error เมื่อต่อเซิร์ฟเวอร์ไม่ได้เลย เช่น API ไม่ได้เปิด

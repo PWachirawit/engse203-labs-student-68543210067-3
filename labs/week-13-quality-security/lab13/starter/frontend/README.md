@@ -20,15 +20,21 @@ flowchart TD
   Routes --> Page[Page Component]
   Page --> UI[Shared Components]
   Page --> Service[requestService]
-  Service --> Seed[Seed JSON]
-  Service --> Storage[requestStorage]
+  Service --> API[Campus Service API]
 ```
 
 - `App.jsx` กำหนด route matrix
 - `pages/` เป็นเจ้าของ route-specific state และ lifecycle
 - `components/` รับข้อมูลและ handler ผ่าน props
 - `requestService.js` เป็น data-access boundary ของ UI
-- `requestStorage.js` เป็นไฟล์เดียวที่ใช้ `localStorage`
+- `apiClient.js` เป็นจุดกลางสำหรับเรียก API และแนบ bearer token ของเจ้าหน้าที่
+- token อยู่ในหน่วยความจำของหน้าเว็บเท่านั้น และถูกล้างเมื่อออกจากระบบ
+
+## Staff access
+
+ใช้เมนู **เจ้าหน้าที่** เพื่อเข้าสู่ระบบด้วยบัญชีพัฒนาที่ระบุใน `../README.md`.
+เจ้าหน้าที่ที่ login แล้วสามารถเปลี่ยนสถานะคำร้องและลบคำร้องได้ ส่วนการดู
+รายการและสร้างคำร้องยังเปิดให้ผู้ใช้ทั่วไป
 
 ## Effect reasoning
 
