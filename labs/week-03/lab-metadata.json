@@ -1,12 +1,12 @@
 {
   "week": "week-03",
   "title": "Responsive Web UI & Form Interaction",
-  "status": "draft",
+  "status": "ready",
   "sourceOrigin": "course-starter",
   "originalRepoUrl": "",
   "originalCommit": "",
   "pullRequestUrl": "",
-  "submissionTag": "",
-  "testStatus": "not-tested",
-  "notes": "Static site ต้องมี index.html ที่ publish root"
+  "submissionTag": "lab-03-submission-v1",
+  "testStatus": "pass",
+  "notes": "พัฒนา Campus Service Request UI, Event handling, Form validation และ Vite build เสร็จสมบูรณ์"
 }
