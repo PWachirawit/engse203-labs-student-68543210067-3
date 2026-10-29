@@ -4,6 +4,10 @@ import { ROOT, escapeHtml, exists, listLabs, meaningfulEntries, readJson, validH
 
 const config = await readJson(path.join(ROOT, "student-config.json"));
 const labs = await listLabs();
+const labEntries = await Promise.all(labs.map(async (week) => ({
+  week,
+  metadata: await readJson(path.join(ROOT, "labs", week, "lab-metadata.json")),
+})));
 const docsRoot = path.join(ROOT, "docs");
 const repoUrl = `https://github.com/${config.githubUsername}/${config.repositoryName}`;
 const pagesBase = `https://${config.githubUsername}.github.io/${config.repositoryName}`;
@@ -22,11 +26,10 @@ const statusLabels = {
 const cards = [];
 const summaries = [];
 
-for (const week of labs) {
+for (const { week, metadata } of labEntries) {
   const labRoot = path.join(ROOT, "labs", week);
   const publishRoot = path.join(labRoot, "publish");
   const target = path.join(docsRoot, "labs", week);
-  const metadata = await readJson(path.join(labRoot, "lab-metadata.json"));
   const hasPublish = await exists(path.join(publishRoot, "index.html"));
   await fs.mkdir(target, { recursive: true });
 

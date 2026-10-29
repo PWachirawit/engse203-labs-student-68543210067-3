@@ -29,23 +29,23 @@
     "pageUrl": "https://PWachirawit.github.io/engse203-student-labs-68543210067-3/labs/week-02/",
     "sourceUrl": "https://github.com/PWachirawit/engse203-student-labs-68543210067-3/tree/lab/week-02/labs/week-02/source",
     "hasPublish": true,
-    "sourceEntries": 12
+    "sourceEntries": 10
   },
   {
     "week": "week-03",
     "title": "Responsive Web UI & Form Interaction",
-    "status": "draft",
+    "status": "ready",
     "sourceOrigin": "course-starter",
     "originalRepoUrl": "",
     "originalCommit": "",
     "pullRequestUrl": "",
-    "submissionTag": "",
-    "testStatus": "not-tested",
-    "notes": "Static site ต้องมี index.html ที่ publish root",
+    "submissionTag": "lab-03-submission-v1",
+    "testStatus": "pass",
+    "notes": "พัฒนา Campus Service Request UI, Event handling, Form validation และ Vite build เสร็จสมบูรณ์",
     "pageUrl": "https://PWachirawit.github.io/engse203-student-labs-68543210067-3/labs/week-03/",
     "sourceUrl": "https://github.com/PWachirawit/engse203-student-labs-68543210067-3/tree/lab/week-03/labs/week-03/source",
-    "hasPublish": false,
-    "sourceEntries": 1
+    "hasPublish": true,
+    "sourceEntries": 7
   },
   {
     "week": "week-04",
