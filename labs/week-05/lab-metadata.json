@@ -1,0 +1,12 @@
+{
+  "week": "week-05",
+  "title": "React Campus Service Request with Router & Storage",
+  "status": "ready",
+  "sourceOrigin": "course-starter",
+  "originalRepoUrl": "",
+  "originalCommit": "",
+  "pullRequestUrl": "",
+  "submissionTag": "lab-05-submission-v1",
+  "testStatus": "pass",
+  "notes": "ผ่านการตรวจสอบ checker ครบ 145/145 รายการ พร้อม Build Pages และ LocalStorage persistence"
+}
