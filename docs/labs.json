@@ -50,33 +50,33 @@
   {
     "week": "week-04",
     "title": "React Campus Service Request",
-    "status": "draft",
+    "status": "ready",
     "sourceOrigin": "course-starter",
     "originalRepoUrl": "",
     "originalCommit": "",
     "pullRequestUrl": "",
-    "submissionTag": "",
-    "testStatus": "not-tested",
-    "notes": "React/Vite build output ต้องอยู่ใน publish/ ก่อนสร้าง Pages Hub",
+    "submissionTag": "lab-04-submission-v1",
+    "testStatus": "pass",
+    "notes": "พัฒนา React Components, Props, State, Events และ Vite build เสร็จสมบูรณ์",
     "pageUrl": "https://PWachirawit.github.io/engse203-student-labs-68543210067-3/labs/week-04/",
     "sourceUrl": "https://github.com/PWachirawit/engse203-student-labs-68543210067-3/tree/lab/week-04/labs/week-04/source",
-    "hasPublish": false,
-    "sourceEntries": 1
+    "hasPublish": true,
+    "sourceEntries": 11
   },
   {
     "week": "week-05",
     "title": "React Campus Service Request with Router & Storage",
-    "status": "draft",
+    "status": "ready",
     "sourceOrigin": "course-starter",
     "originalRepoUrl": "",
     "originalCommit": "",
     "pullRequestUrl": "",
-    "submissionTag": "",
-    "testStatus": "not-tested",
-    "notes": "",
+    "submissionTag": "lab-05-submission-v1",
+    "testStatus": "pass",
+    "notes": "ผ่านการตรวจสอบ checker ครบ 145/145 รายการ พร้อม Build Pages และ LocalStorage persistence",
     "pageUrl": "https://PWachirawit.github.io/engse203-student-labs-68543210067-3/labs/week-05/",
     "sourceUrl": "https://github.com/PWachirawit/engse203-student-labs-68543210067-3/tree/lab/week-05/labs/week-05/source",
-    "hasPublish": false,
-    "sourceEntries": 0
+    "hasPublish": true,
+    "sourceEntries": 10
   }
 ]

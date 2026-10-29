@@ -3,11 +3,15 @@ import path from "node:path";
 import { ROOT, escapeHtml, exists, listLabs, meaningfulEntries, readJson, validHttpUrl } from "./common.mjs";
 
 const config = await readJson(path.join(ROOT, "student-config.json"));
-const labs = await listLabs();
-const labEntries = await Promise.all(labs.map(async (week) => ({
-  week,
-  metadata: await readJson(path.join(ROOT, "labs", week, "lab-metadata.json")),
-})));
+const labEntries = [];
+for (const week of await listLabs()) {
+  const metadataPath = path.join(ROOT, "labs", week, "lab-metadata.json");
+  if (!(await exists(metadataPath))) {
+    console.warn(`Skipping ${week}: lab-metadata.json not found`);
+    continue;
+  }
+  labEntries.push({ week, metadata: await readJson(metadataPath) });
+}
 const docsRoot = path.join(ROOT, "docs");
 const repoUrl = `https://github.com/${config.githubUsername}/${config.repositoryName}`;
 const pagesBase = `https://${config.githubUsername}.github.io/${config.repositoryName}`;
@@ -78,6 +82,6 @@ const dashboard = `<!doctype html>
 await fs.writeFile(path.join(docsRoot, "index.html"), dashboard, "utf8");
 await fs.writeFile(path.join(docsRoot, "labs.json"), `${JSON.stringify(summaries, null, 2)}\n`, "utf8");
 
-console.log(`Build Pages Hub: PASS — ${labs.length} LAB(s)`);
+console.log(`Build Pages Hub: PASS — ${labEntries.length} LAB(s)`);
 console.log(`Output: ${path.relative(ROOT, docsRoot)}/`);
 console.log(`Preview: ${pagesBase}/`);
